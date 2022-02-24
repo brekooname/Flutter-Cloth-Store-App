@@ -10,7 +10,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Design - https://dribbble.com/shots/15507510-Fashion-Store-Mobile-App
+Design concept - https://dribbble.com/shots/15507510-Fashion-Store-Mobile-App
 
 ### Built With
 Used below plugings for this project
