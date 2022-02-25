@@ -1,4 +1,6 @@
 import 'package:fasion_store/data/models/cloth.dart';
+import 'package:fasion_store/presentation/screens/cloth/cloth_screens.dart';
+import 'package:fasion_store/presentation/widgets/favorite_cloth_button.dart';
 import 'package:flutter/material.dart';
 
 class MainClothCard extends StatelessWidget {
@@ -7,10 +9,17 @@ class MainClothCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
-      child: GestureDetector(
-        onTap: () {},
+    return InkWell(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ClothScreen(
+              cloth: cloth
+          )),
+        );
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12),
         child: Stack(
           children: [
             Column(
@@ -18,34 +27,31 @@ class MainClothCard extends StatelessWidget {
               children: [
                 Expanded(
                     child: Card(
-                  color: Colors.black,
-                  elevation: 5,
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                    // side: BorderSide(color: Colors.white70, width: 1),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Hero(
-                    tag: cloth.id,
-                    child: Material(
-                      child: InkWell(
-                        onTap: () {},
-                        child: GridTile(
-                          footer: Container(),
-                          child: Image.asset(
-                            cloth.image,
-                            fit: BoxFit.cover,
+                      color: Colors.black,
+                      elevation: 5,
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        // side: BorderSide(color: Colors.white70, width: 1),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Hero(
+                        tag: cloth.id,
+                        child: Material(
+                          child: GridTile(
+                            footer: Container(),
+                            child: Image.asset(
+                              cloth.image,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ),
-                )),
+                    )),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
                   child: Text(cloth.name,
                       style: const TextStyle(
-                          // fontSize: 20,
+                        // fontSize: 20,
                           fontWeight: FontWeight.w600)),
                 ),
                 Padding(
@@ -59,7 +65,7 @@ class MainClothCard extends StatelessWidget {
                           decoration: cloth.discountPrice==null?null:TextDecoration.lineThrough,
                         ),),
                       cloth.discountPrice==null?
-                          const SizedBox():
+                      const SizedBox():
                       Text(' \$${cloth.discountPrice}',
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w600
@@ -67,29 +73,15 @@ class MainClothCard extends StatelessWidget {
                       )
                     ],
                   ),
-                  // child: Text(
-                  //   r'$' + cloth.price.toString(),
-                  //   style: const TextStyle(
-                  //       fontSize: 16, fontWeight: FontWeight.w600),
-                  // ),
                 )
               ],
             ),
             Positioned(
               top: 10,
               right: 0,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Icon(
-                    cloth.isFavorite ? Icons.favorite : Icons.favorite_border,
-                    color: Theme.of(context).primaryColor),
-                style: ElevatedButton.styleFrom(
-                  shape: const CircleBorder(),
-                  elevation: 0,
-                  padding: const EdgeInsets.all(6),
-                  primary: Colors.white, // <-- Button color
-                  onPrimary: Colors.red, // <-- Splash color
-                ),
+              child: FavoriteClothButton(
+                status: cloth.isFavorite,
+                onClick: (){},
               ),
             ),
           ],

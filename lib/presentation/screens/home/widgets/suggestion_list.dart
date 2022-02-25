@@ -7,16 +7,19 @@ class SuggestionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 12, top: 16),
+      padding: const EdgeInsets.only(top: 16),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         child: Row(
           children: [
-            SuggestionButton(
-                title: "Treading Now",
-                onClick: (){},
-                isSelected: true
+            Padding(
+              padding: const EdgeInsets.only(left: 12),
+              child: SuggestionButton(
+                  title: "Treading Now",
+                  onClick: (){},
+                  isSelected: true
+              ),
             ),
             const SizedBox(
               width: 12,
