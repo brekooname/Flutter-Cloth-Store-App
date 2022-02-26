@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:fasion_store/data/models/cloth.dart';
 import 'package:fasion_store/presentation/widgets/favorite_cloth_button.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +110,7 @@ class ClothScreen extends StatelessWidget {
   Widget _floatingCollapsed(){
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.transparent,
+        // color: Colors.transparent,
       ),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 20),
@@ -133,19 +135,18 @@ class ClothScreen extends StatelessWidget {
   Widget _floatingPanel(String description){
     return Container(
       decoration: BoxDecoration(
-          color: Colors.black45,
-          borderRadius: BorderRadius.all(Radius.circular(24.0)),
+        color: Colors.black26,
+        borderRadius: BorderRadius.all(Radius.circular(24.0)),
       ),
-      margin: const EdgeInsets.all(24.0),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Text(description,
+      padding: EdgeInsets.symmetric(
+        horizontal: 10
+      ),
+      child: Center(
+        child: Text(description,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 16
+              color: Colors.white,
+              fontSize: 16
           ),),
-        ),
       ),
     );
   }

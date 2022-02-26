@@ -21,7 +21,7 @@ class SuggestionButton extends StatelessWidget {
       ),),
       style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsets>(
-              const EdgeInsets.symmetric(vertical: 18, horizontal: 32)),
+              const EdgeInsets.symmetric(vertical: 16, horizontal: 30)),
           backgroundColor: MaterialStateProperty.all<Color>(
               isSelected ? Theme.of(context).colorScheme.secondary : Theme.of(context).backgroundColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
