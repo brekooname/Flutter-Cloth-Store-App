@@ -19,7 +19,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   void _onLoadCart(LoadCart event, Emitter<CartState> emit) async {
     debugPrint("Loading Cart...");
     try {
-      emit(const CartLoaded(cloths: []));
+      emit(const CartLoaded(cloths: <Cloth>[]));
     } catch (e) {
       debugPrint(e.toString());
       emit(CartError());
@@ -32,6 +32,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       debugPrint("Cart Adding....");
       if (state is CartLoaded) {
         emit(CartLoaded(cloths: List.from(state.cloths)..add(event.cloth)));
+        print(event.cloth);
       }
     } catch (e) {
       debugPrint(e.toString());

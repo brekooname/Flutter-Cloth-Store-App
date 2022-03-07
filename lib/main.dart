@@ -2,6 +2,7 @@ import 'package:fasion_store/business_logic/blocs/cloth/cloth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'business_logic/blocs/cart/cart_bloc.dart';
 import 'presentation/router/app_router.dart';
 import 'core/themes/app_theme.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider<ClothBloc>(create: (context) => ClothBloc()..add(LoadCloth()),)
+          BlocProvider<ClothBloc>(create: (context) => ClothBloc()..add(LoadCloth()),),
+          BlocProvider<CartBloc>(create: (context) => CartBloc()..add(LoadCart()),)
         ],
         child: const EasyBillingApp());
   }
