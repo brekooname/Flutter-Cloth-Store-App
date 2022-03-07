@@ -1,3 +1,4 @@
+import 'package:fasion_store/business_logic/blocs/cloth/cloth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,7 +14,11 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const EasyBillingApp();
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider<ClothBloc>(create: (context) => ClothBloc()..add(LoadCloth()),)
+        ],
+        child: const EasyBillingApp());
   }
 }
 

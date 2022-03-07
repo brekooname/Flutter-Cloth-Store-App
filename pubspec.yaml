@@ -36,9 +36,11 @@ dependencies:
 
   bloc:
   flutter_bloc:
+  equatable:
   animated_bottom_navigation_bar: ^0.3.2
   flutter_snake_navigationbar: ^0.6.0
 
+  like_button: ^2.0.4
   anim_search_bar: ^2.0.2
 
   sliding_up_panel: ^2.0.0+1

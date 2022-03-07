@@ -5,17 +5,20 @@ import 'package:flutter/material.dart';
 
 class MainClothCard extends StatelessWidget {
   final Cloth cloth;
-  const MainClothCard({Key? key, required this.cloth}) : super(key: key);
+  final Function onFavoriteToggle;
+  const MainClothCard({
+    Key? key,
+    required this.cloth,
+    required this.onFavoriteToggle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => ClothScreen(
-              cloth: cloth
-          )),
+          MaterialPageRoute(builder: (context) => ClothScreen(cloth: cloth)),
         );
       },
       child: Padding(
@@ -27,50 +30,55 @@ class MainClothCard extends StatelessWidget {
               children: [
                 Expanded(
                     child: Card(
-                      color: Colors.black,
-                      elevation: 5,
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                        // side: BorderSide(color: Colors.white70, width: 1),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Hero(
-                        tag: cloth.id,
-                        child: Material(
-                          child: GridTile(
-                            footer: Container(),
-                            child: Image.asset(
-                              cloth.image,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                  color: Colors.black,
+                  elevation: 5,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Hero(
+                    tag: cloth.id,
+                    child: Material(
+                      child: GridTile(
+                        footer: Container(),
+                        child: Image.asset(
+                          cloth.image,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    )),
+                    ),
+                  ),
+                )),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
                   child: Text(cloth.name,
                       style: const TextStyle(
-                        // fontSize: 20,
                           fontWeight: FontWeight.w600)),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
                   child: Row(
                     children: [
-                      Text(r'$' + cloth.price.toString(),
+                      Text(
+                        r'$' + cloth.price.toString(),
                         style: TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w600,
-                          color: cloth.discountPrice==null?Colors.black87:Colors.grey,
-                          decoration: cloth.discountPrice==null?null:TextDecoration.lineThrough,
-                        ),),
-                      cloth.discountPrice==null?
-                      const SizedBox():
-                      Text(' \$${cloth.discountPrice}',
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: cloth.discountPrice == null
+                              ? Colors.black87
+                              : Colors.grey,
+                          decoration: cloth.discountPrice == null
+                              ? null
+                              : TextDecoration.lineThrough,
                         ),
-                      )
+                      ),
+                      cloth.discountPrice == null
+                          ? const SizedBox()
+                          : Text(
+                              ' \$${cloth.discountPrice}',
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            )
                     ],
                   ),
                 )
@@ -79,10 +87,12 @@ class MainClothCard extends StatelessWidget {
             Positioned(
               top: 10,
               right: 0,
-              child: FavoriteClothButton(
-                status: cloth.isFavorite,
-                onClick: (){},
-              ),
+              child:
+              FavoriteClothButton(
+                  status: cloth.isFavorite,
+                  onClick: () {
+                    onFavoriteToggle();
+                  }),
             ),
           ],
         ),

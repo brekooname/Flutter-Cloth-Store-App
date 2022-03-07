@@ -1,4 +1,6 @@
-class Cloth {
+import 'package:equatable/equatable.dart';
+
+class Cloth extends Equatable {
   int id;
   String name;
   String image;
@@ -15,6 +17,10 @@ class Cloth {
       required this.price,
       this.discountPrice,
       required this.isFavorite});
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [id,name,image,description,price,discountPrice,isFavorite];
 }
 
 List<Cloth> tempCloths = <Cloth>[

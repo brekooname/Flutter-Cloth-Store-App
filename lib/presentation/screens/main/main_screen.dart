@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
 import '../../../data/models/cloth.dart';
-import '../../widgets/cloth_grid.dart';
+import '../favorite/favorite_cloth_screen.dart';
+import '../home/widgets/cloth_grid.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -65,8 +66,8 @@ class _MainScreenState extends State<MainScreen> {
                 controller: controller,
                 children: <Widget>[
                   const HomeScreen(),
-                  ClothGrid(cloths: tempCloths.where((element) => element.isFavorite).toList()),
-                  ClothScreen(),
+                  const FavoriteClothScreen(),
+                  const ClothScreen(),
                   Container(),
                 ],
               ),
