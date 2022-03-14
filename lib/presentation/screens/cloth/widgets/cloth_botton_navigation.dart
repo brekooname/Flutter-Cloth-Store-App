@@ -38,6 +38,7 @@ class ClothBottomNavigation extends StatelessWidget {
               ),
             ],
           ),
+          Spacer(),
           ElevatedButton(
             onPressed: () {
               context
@@ -51,7 +52,32 @@ class ClothBottomNavigation extends StatelessWidget {
             ),
             style: ButtonStyle(
               padding: MaterialStateProperty.all<EdgeInsets>(
-                  const EdgeInsets.symmetric(vertical: 18, horizontal: 38)),
+                  const EdgeInsets.symmetric(vertical: 18, horizontal: 20)),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  Theme.of(context).primaryColor),
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0)),
+              ),
+            ),
+          ),
+          const SizedBox(
+            width: 6,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              context
+                  .read<CartBloc>()
+                  .add(AddCart(cloth: cloth));
+              Navigator.pop(context);
+            },
+            child: const Text(
+              "Buy",
+              style: TextStyle(color: Colors.white),
+            ),
+            style: ButtonStyle(
+              padding: MaterialStateProperty.all<EdgeInsets>(
+                  const EdgeInsets.symmetric(vertical: 18, horizontal: 42)),
               backgroundColor: MaterialStateProperty.all<Color>(
                   Theme.of(context).primaryColor),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(

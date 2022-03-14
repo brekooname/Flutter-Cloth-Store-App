@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'business_logic/blocs/cart/cart_bloc.dart';
+import 'business_logic/blocs/wishlist/wishlist_bloc.dart';
 import 'presentation/router/app_router.dart';
 import 'core/themes/app_theme.dart';
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider<ClothBloc>(create: (context) => ClothBloc()..add(LoadCloth()),),
-          BlocProvider<CartBloc>(create: (context) => CartBloc()..add(LoadCart()),)
+          BlocProvider<CartBloc>(create: (context) => CartBloc()..add(LoadCart()),),
+          BlocProvider<WishlistBloc>(create: (context) => WishlistBloc()..add(LoadWishlist()),)
         ],
         child: const EasyBillingApp());
   }

@@ -1,4 +1,3 @@
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeAppBar extends StatefulWidget {
@@ -12,13 +11,13 @@ class _HomeAppBarState extends State<HomeAppBar> {
   TextEditingController textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    // var width = MediaQuery.of(context).size.width;
     return Padding(
       padding:
       const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: const [
           SizedBox(height: 16,),
           // Icon(Icons.menu),
           // Icon(Icons.search),

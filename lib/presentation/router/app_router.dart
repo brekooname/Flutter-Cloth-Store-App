@@ -1,5 +1,4 @@
 import 'package:fasion_store/core/exceptions/route_exception.dart';
-import 'package:fasion_store/presentation/screens/home/home_screen.dart';
 import 'package:fasion_store/presentation/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 

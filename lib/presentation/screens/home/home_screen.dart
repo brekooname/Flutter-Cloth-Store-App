@@ -1,6 +1,4 @@
-import 'package:fasion_store/data/models/cloth.dart';
 import 'package:fasion_store/presentation/screens/home/widgets/cloth_grid.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: TextField(
             autofocus: false,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(left: 12),
+              contentPadding: const EdgeInsets.only(left: 12),
                 suffixIcon: const Icon(Icons.search),
                 border: const OutlineInputBorder(),
                 hintText: "Search",

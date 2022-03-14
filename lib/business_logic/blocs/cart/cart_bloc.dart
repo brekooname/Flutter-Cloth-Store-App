@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +7,7 @@ import '../../../data/models/cloth.dart';
 part 'cart_event.dart';
 part 'cart_state.dart';
 
-class CartBloc extends Bloc<CartEvent, CartState> {
+class CartBloc extends Bloc<CartEvent, CartState>{
   CartBloc() : super(CartLoading()) {
     on<LoadCart>(_onLoadCart);
     on<AddCart>(_onAddCart);
@@ -32,7 +30,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       debugPrint("Cart Adding....");
       if (state is CartLoaded) {
         emit(CartLoaded(cloths: List.from(state.cloths)..add(event.cloth)));
-        print(event.cloth);
+        debugPrint(event.cloth.toString());
       }
     } catch (e) {
       debugPrint(e.toString());
@@ -52,5 +50,4 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       emit(CartError());
     }
   }
-
 }

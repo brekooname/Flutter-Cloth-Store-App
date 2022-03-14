@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fasion_store/data/models/cloth.dart';
@@ -34,10 +32,10 @@ class ClothBloc extends Bloc<ClothEvent, ClothState> {
       emit(ClothLoading());
       try {
         List<Cloth> _cloths = state.cloths;
-        _cloths.firstWhere((element) => element.id == event.clothId)
-                .isFavorite =
-            !_cloths.firstWhere((element) => element.id == event.clothId)
-                .isFavorite;
+        // _cloths.firstWhere((element) => element.id == event.clothId)
+        //         .isFavorite =
+        //     !_cloths.firstWhere((element) => element.id == event.clothId)
+        //         .isFavorite;
         emit(ClothLoaded(cloths: _cloths));
       } catch (e) {
         debugPrint(e.toString());

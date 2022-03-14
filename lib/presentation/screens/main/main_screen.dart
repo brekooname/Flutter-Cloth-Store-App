@@ -3,9 +3,7 @@ import 'package:fasion_store/presentation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
-import '../../../data/models/cloth.dart';
 import '../favorite/favorite_cloth_screen.dart';
-import '../home/widgets/cloth_grid.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -15,10 +13,10 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final BorderRadius _borderRadius = const BorderRadius.only(
-    topLeft: Radius.circular(25),
-    topRight: Radius.circular(25),
-  );
+  // final BorderRadius _borderRadius = const BorderRadius.only(
+  //   topLeft: Radius.circular(25),
+  //   topRight: Radius.circular(25),
+  // );
 
   ShapeBorder? bottomBarShape = const RoundedRectangleBorder(
     borderRadius: BorderRadius.all(Radius.circular(25)),
@@ -62,12 +60,12 @@ class _MainScreenState extends State<MainScreen> {
             child: AnimatedContainer(
               duration: const Duration(seconds: 1),
               child: PageView(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 controller: controller,
                 children: <Widget>[
                   const HomeScreen(),
                   const FavoriteClothScreen(),
-                  const ClothScreen(),
+                  const CartScreen(),
                   Container(),
                 ],
               ),

@@ -52,8 +52,7 @@ class MainClothCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
                   child: Text(cloth.name,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w600)),
+                      style: const TextStyle(fontWeight: FontWeight.w600)),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
@@ -87,12 +86,9 @@ class MainClothCard extends StatelessWidget {
             Positioned(
               top: 10,
               right: 0,
-              child:
-              FavoriteClothButton(
-                  status: cloth.isFavorite,
-                  onClick: () {
-                    onFavoriteToggle();
-                  }),
+              child: FavoriteClothButton(
+                cloth: cloth,
+              ),
             ),
           ],
         ),
