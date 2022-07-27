@@ -14,52 +14,51 @@ class ClothScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      body: SafeArea(
-        child: PhysicalModel(
-          color: Theme.of(context).backgroundColor,
-          borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(40),
-              bottomRight: Radius.circular(40)),
-          clipBehavior: Clip.antiAlias,
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(cloth.image),
-                    fit: BoxFit.cover,
-                  ),
+      body: PhysicalModel(
+        color: Theme.of(context).backgroundColor,
+        borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(40),
+            bottomRight: Radius.circular(40)),
+        clipBehavior: Clip.antiAlias,
+        child: Stack(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(cloth.image),
+                  fit: BoxFit.cover,
                 ),
               ),
-              Positioned(
-                top: 10,
-                left: 10,
-                right: 10,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                        onPressed: () => Navigator.pop(context),
-                        icon: const Icon(Icons.arrow_back_outlined)),
-                    BlocBuilder<ClothBloc, ClothState>(
-                      builder: (context, state) => FavoriteClothButton(
-                        cloth: cloth,
-                      ),
+            ),
+            SafeArea(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () => Navigator.pop(context),
+                      icon: const Icon(Icons.arrow_back_outlined)),
+                  BlocBuilder<ClothBloc, ClothState>(
+                    builder: (context, state) => FavoriteClothButton(
+                      cloth: cloth,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              SlidingUpPanel(
+            ),
+            Container(
+              child: SlidingUpPanel(
                 renderPanelSheet: false,
                 panel: _floatingPanel(cloth.description),
                 collapsed: _floatingCollapsed(),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
-      bottomNavigationBar: ClothBottomNavigation(
-        cloth: cloth,
+      bottomNavigationBar: SafeArea(
+        child: ClothBottomNavigation(
+          cloth: cloth,
+        ),
       ),
     );
   }
