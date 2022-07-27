@@ -50,13 +50,13 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Theme.of(context).colorScheme.secondary,
-      body: SafeArea(
-        child: PhysicalModel(
-            color: Theme.of(context).backgroundColor,
-            borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(40),
-                bottomRight: Radius.circular(40)),
-            clipBehavior: Clip.antiAlias,
+      body: PhysicalModel(
+          color: Theme.of(context).backgroundColor,
+          borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(40),
+              bottomRight: Radius.circular(40)),
+          clipBehavior: Clip.antiAlias,
+          child: SafeArea(
             child: AnimatedContainer(
               duration: const Duration(seconds: 1),
               child: PageView(
@@ -69,8 +69,8 @@ class _MainScreenState extends State<MainScreen> {
                   Container(),
                 ],
               ),
-            )),
-      ),
+            ),
+          )),
       bottomNavigationBar: SnakeNavigationBar.color(
         behaviour: SnakeBarBehaviour.floating,
         snakeShape: SnakeShape.circle,
