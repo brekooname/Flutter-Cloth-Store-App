@@ -38,8 +38,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(backgroundColor: lightPrimaryColor),
       colorScheme: ColorScheme.light(secondary: lightSecondaryColor),
       textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(primary: lightBackgroundColor))
-  );
+          style: TextButton.styleFrom(primary: lightBackgroundColor)));
 
   static final darkTheme = ThemeData(
       brightness: Brightness.dark,

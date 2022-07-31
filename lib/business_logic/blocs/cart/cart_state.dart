@@ -13,6 +13,8 @@ class CartLoaded extends CartState {
   final List<Cloth> cloths;
   const CartLoaded({this.cloths = const []});
 
+  double getTotal() => cloths.fold(0, (previousValue, element) => previousValue+element.price);
+
   @override
   List<Object> get props => [cloths];
 }
