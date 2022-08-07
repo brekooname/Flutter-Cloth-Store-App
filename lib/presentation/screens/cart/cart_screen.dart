@@ -63,7 +63,7 @@ class CartScreen extends StatelessWidget {
                                 style: TextStyle(color: Colors.white),
                                 ),
                                 Text("x${state.cloths.length}",
-                                  style: TextStyle(color: Colors.white),)
+                                  style: const TextStyle(color: Colors.white),)
                               ],
                             ),
                           ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
 import '../favorite/favorite_cloth_screen.dart';
+import '../setting/setting_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -62,11 +63,11 @@ class _MainScreenState extends State<MainScreen> {
               child: PageView(
                 physics: const NeverScrollableScrollPhysics(),
                 controller: controller,
-                children: <Widget>[
-                  const HomeScreen(),
-                  const FavoriteClothScreen(),
-                  const CartScreen(),
-                  Container(),
+                children: const <Widget>[
+                  HomeScreen(),
+                  FavoriteClothScreen(),
+                  CartScreen(),
+                  SettingScreen(),
                 ],
               ),
             ),
