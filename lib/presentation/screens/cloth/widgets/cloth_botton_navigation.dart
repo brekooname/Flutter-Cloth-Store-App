@@ -38,7 +38,7 @@ class ClothBottomNavigation extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           ElevatedButton(
             onPressed: () {
               context

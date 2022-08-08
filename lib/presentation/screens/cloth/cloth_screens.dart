@@ -45,12 +45,10 @@ class ClothScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              child: SlidingUpPanel(
-                renderPanelSheet: false,
-                panel: _floatingPanel(cloth.description),
-                collapsed: _floatingCollapsed(),
-              ),
+            SlidingUpPanel(
+              renderPanelSheet: false,
+              panel: _floatingPanel(cloth.description),
+              collapsed: _floatingCollapsed(),
             )
           ],
         ),
